@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('templating');
+    return view('test_form');
 });
+
+
+Route::resource('membretribunal', 'MembreTribunalController');
+Route::resource('jury', 'JuryController');
+Route::resource('dossiercorrectionnel', 'DossierCorrectionnelController');
+Route::resource('renvoi', 'RenvoiController');

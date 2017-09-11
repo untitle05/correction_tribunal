@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "3236ce8e2b6aec3c72963a6cda7f4ef1",
+=======
+    "content-hash": "0eb8fa09fb4816faced489b9bcb34a1d",
+>>>>>>> 1cf114f7b64e3ddd891a04d2ded9011f2d296db1
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -348,6 +352,7 @@
         },
         {
             "name": "intervention/image",
+<<<<<<< HEAD
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -358,6 +363,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Intervention/image/zipball/4581c28cdcb6067dca2b27ea8b76842ca79ddf90",
                 "reference": "4581c28cdcb6067dca2b27ea8b76842ca79ddf90",
+=======
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "322a4ade249467179c50a3e50eda8760ff3af2a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/322a4ade249467179c50a3e50eda8760ff3af2a3",
+                "reference": "322a4ade249467179c50a3e50eda8760ff3af2a3",
+>>>>>>> 1cf114f7b64e3ddd891a04d2ded9011f2d296db1
                 "shasum": ""
             },
             "require": {
@@ -414,7 +431,11 @@
                 "thumbnail",
                 "watermark"
             ],
+<<<<<<< HEAD
             "time": "2017-07-04T16:10:28+00:00"
+=======
+            "time": "2017-07-03T15:50:40+00:00"
+>>>>>>> 1cf114f7b64e3ddd891a04d2ded9011f2d296db1
         },
         {
             "name": "jakub-onderka/php-console-color",
