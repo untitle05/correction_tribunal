@@ -12,11 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('connexion');
+    return view('welcome');
 });
 
-
+/*
 Route::resource('membretribunal', 'MembreTribunalController');
 Route::resource('jury', 'JuryController');
 Route::resource('dossiercorrectionnel', 'DossierCorrectionnelController');
-Route::resource('renvoi', 'RenvoiController');
+Route::resource('renvoi', 'RenvoiController');*/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// pour le photo
+Route::get('profile', 'UsersController@profile');
+Route::post('profile', 'UsersController@update_avatar');
