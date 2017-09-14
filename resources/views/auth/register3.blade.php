@@ -1,7 +1,17 @@
-@extends('page_model')
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Sign In | Bootstrap Based Admin Template - Material Design</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
-   @section('css')
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
     <!-- Bootstrap Core Css -->
     <link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.css")}} rel="stylesheet">
 
@@ -17,10 +27,15 @@
     <link href={{asset("bower_components/adminbsb-materialdesign/css/style.css")}} rel="stylesheet">
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-@endsection
 
+</head>
 
-@section('main_content')
+<body class="login-page">
+<div class="login-box">
+    <div class="logo">
+        <a href="javascript:void(0);"><h3>TRIBUNAL DE GRANDE INSTANCE DU NFOUNDI</h3><b> <BIG> YAOUNDE </BIG></b></a>
+        <small>ADMINISTRATION NUMERIQUE DES DOSSIERS CORECTIONNEL </small>
+    </div>
     <div class="card">
         <div class="body">
             <form id="sign_up" method="POST" action="{{ route('register') }}">
@@ -72,9 +87,6 @@
         </div>
     </div>
 </div>
-    @endsection
-
-@section('js')
 
 <!-- Jquery Core Js -->
 <script src={{asset("bower_components/adminbsb-materialdesign/plugins/jquery/jquery.min.js")}}></script>
@@ -91,4 +103,9 @@
 <!-- Custom Js -->
 <script src={{asset("bower_components/adminbsb-materialdesign/js/admin.js")}}></script>
 <script src={{asset("bower_components/js/pages/examples/sign-up.js")}}></script>
-    @endsection
+
+
+
+</body>
+
+</html>

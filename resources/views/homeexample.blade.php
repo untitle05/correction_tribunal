@@ -1,12 +1,11 @@
-@extends('page_model')
+@extends('layouts.app')
 
-@section('main_content')
-    <br><br><br><br>
+@section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-11 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Bienvenue <i class="style : color-name">{{ Auth::user()->name }}</i> dans votre espace de travail</div>
+                    <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
                         @if (session('status'))
@@ -15,8 +14,7 @@
                             </div>
                         @endif
 
-                        Connexion avec succes!
-
+                        You are logged in!
                     </div>
                 </div>
             </div>

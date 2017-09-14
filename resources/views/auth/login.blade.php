@@ -35,6 +35,8 @@
     <div class="logo">
         <a href="javascript:void(0);"><h3>TRIBUNAL DE GRANDE INSTANCE DU NFOUNDI</h3><b> <BIG> YAOUNDE </BIG></b></a>
         <small>ADMINISTRATION NUMERIQUE DES DOSSIERS CORECTIONNEL </small>
+        <img src="/uploads/minjust.jpg" style="width:250px; height:100px; position:absolute; top:10px; left:10px; border-radius:50%">
+
     </div>
     <div class="card">
 
@@ -43,20 +45,30 @@
                 {{ csrf_field() }}
 
                 <div class="msg">Entrez vos paramètres de Connexion</div>
-                <div class="input-group">
+                <div class="input-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                     <div class="form-line">
                         <input type="email" class="form-control" name="email" placeholder="email" required autofocus>
+                        @if ($errors->has('email'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                        @endif
                     </div>
                 </div>
-                <div class="input-group">
+                <div class="input-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <span class="input-group-addon">
                             <i class="material-icons">lock</i>
                         </span>
                     <div class="form-line">
                         <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        @if ($errors->has('password'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                        @endif
                     </div>
                 </div>
                 <div class="row">
