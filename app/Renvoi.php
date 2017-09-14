@@ -9,7 +9,9 @@ class Renvoi extends Model
 
     protected $table = 'renvoi';
     public $timestamps = true;
-    protected $fillable = array('dossier_id');
+    protected $fillable = [
+        'dossier_id', 'motif_renvoi', 'date_renvoi'
+    ];
 
     public function dossiers_correctionnels()
     {

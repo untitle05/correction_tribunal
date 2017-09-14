@@ -17,7 +17,6 @@ class CreateDossiersCorrectionnelsTable extends Migration {
 			$table->string('situation_penale', 150)->unique();
 			$table->string('jugment_ADD', 150)->unique();
 			$table->string('jugement_au_fond', 150)->unique();
-			$table->integer('jury_id')->unsigned();
 		});
 	}
 

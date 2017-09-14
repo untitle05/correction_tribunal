@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-class MembreTribunalController extends Controller 
+use Illuminate\Http\Request;
+class MembreTribunalController extends Controller
 {
 
   /**
@@ -12,7 +13,7 @@ class MembreTribunalController extends Controller
    */
   public function index()
   {
-    
+    return view('membres_tribunal.membres_tribunal');
   }
 
   /**

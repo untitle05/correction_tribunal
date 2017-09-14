@@ -95,6 +95,7 @@
         </section>-->
 
         <!-- dashbord -->
+        <h2> CRUD with Vue Js</h2>
 
         @yield('main_content')
 

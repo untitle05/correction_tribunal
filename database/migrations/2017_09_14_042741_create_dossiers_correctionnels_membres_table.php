@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJuryMembresTribunal extends Migration
+class CreateDossiersCorrectionnelsMembresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateJuryMembresTribunal extends Migration
      */
     public function up()
     {
-        Schema::create('jury_membres_tribunal', function(Blueprint $table) {
+        Schema::create('dossiers_correctionnels_membres', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('jury_id')->unsigned();
+            $table->integer('dossiers_correctionnels_id')->unsigned();
             $table->integer('membres_tribunal_id')->unsigned();
-            $table->foreign('jury_id')->references('id')->on('jury')
+            $table->foreign('dossiers_correctionnels_id')->references('id')->on('dossiers_correctionnels')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
 
@@ -35,12 +35,12 @@ class CreateJuryMembresTribunal extends Migration
      */
     public function down()
     {
-        Schema::table('jury_membres_tribunal', function(Blueprint $table) {
-            $table->dropForeign('jury_membres_tribunal_jury_id_foreign');
-            $table->dropForeign('jury_membres_tribunal_membres_tribunal_id_foreign');
+        Schema::table('dossiers_correctionnels_membres', function(Blueprint $table) {
+            $table->dropForeign('dossiers_correctionnels_membres_dossiers_correctionnels_id_foreign');
+            $table->dropForeign('dossiers_correctionnels_membres_membres_tribunal_id_foreign');
         });
 
-        Schema::drop('jury_membres_tribunal');
+        Schema::drop('dossiers_correctionnels_membres');
         //
     }
 }

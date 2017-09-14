@@ -11,12 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('test_form');
-});
+});*/
 
 
-Route::resource('membretribunal', 'MembreTribunalController');
-Route::resource('jury', 'JuryController');
+Route::resource('/', 'MembreTribunalController');
 Route::resource('dossiercorrectionnel', 'DossierCorrectionnelController');
 Route::resource('renvoi', 'RenvoiController');
