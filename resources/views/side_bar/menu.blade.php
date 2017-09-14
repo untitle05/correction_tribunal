@@ -76,7 +76,7 @@
 
                 </li>
                 <li>
-                    <a href="{{ route('register') }}" class="mce-menu-item">
+                    <a href="{{ url('register') }}" class="mce-menu-item">
                         <span>UTILISATEURS</span>
                     </a>
 
