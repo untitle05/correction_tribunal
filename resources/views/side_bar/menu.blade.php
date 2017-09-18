@@ -2,7 +2,7 @@
     <ul class="list">
         <li class="header">TABLEAU DE BORD</li>
         <li class="active">
-            <a href='{!! url('#'); !!}'>
+            <a href='{!! url('#')!!}'>
 
                 <i class="material-icons">home</i>
                 <span>Home</span>

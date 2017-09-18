@@ -2,8 +2,7 @@
 
 @section('main_content')
 
-	<!-- Striped Rows -->
-	<section class="content" xmlns="http://www.w3.org/1999/html">
+	<section class="content">
 		<div class="container-fluid">
 			<div class="block-header">
 				<h2>FORM EXAMPLES</h2>
@@ -54,8 +53,15 @@
 					</div>
 				</div>
 			</div>
-			</div>
-		</section>
 			<!-- #END# Vertical Layout -->
-	<!-- #END# Striped Rows -->
+
+
+
+							</div>
+
+
+			<!-- #END# Multi Column -->
+
+	</section>
+
 @endsection

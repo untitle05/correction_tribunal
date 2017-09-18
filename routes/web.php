@@ -11,11 +11,15 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('test_form');
-});*/
+Route::get('/', function () {
+    return view('auth.login');
+});
 
 
-Route::resource('/', 'MembreTribunalController');
+Route::resource('membretribunal', 'MembreTribunalController');
 Route::resource('dossiercorrectionnel', 'DossierCorrectionnelController');
 Route::resource('renvoi', 'RenvoiController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
