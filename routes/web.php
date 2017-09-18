@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::resource('membretribunal', 'MembreTribunalController');
 Route::resource('dossiercorrectionnel', 'DossierCorrectionnelController');
 Route::resource('renvoi', 'RenvoiController');
+Route::resource('users', 'UsersController');
 
 Auth::routes();
 
