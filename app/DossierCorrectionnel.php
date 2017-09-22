@@ -15,12 +15,12 @@ class DossierCorrectionnel extends Model
 
     public function membres_tribunal()
     {
-        return  $this->belongsToMany('App\Models\MembreTribunal');
+        return  $this->belongsToMany('App\MembreTribunal', 'dossiers_membres', 'dossiers_id', 'membres_id');
     }
 
     public function renvoi()
     {
-        return $this->hasMany('App\Models\Renvoi');
+        return $this->hasMany('App\Renvoi');
     }
 
 }

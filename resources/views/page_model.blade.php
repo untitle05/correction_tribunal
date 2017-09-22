@@ -15,7 +15,7 @@
 
 
         <!-- Bootstrap Core Css -->
-        <link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.css")}} rel="stylesheet">
+        <link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.min.css")}} rel="stylesheet">
 
         <!-- Waves Effect Css -->
         <link href={{asset("bower_components/adminbsb-materialdesign/plugins/node-waves/waves.css")}} rel="stylesheet" />
@@ -96,7 +96,6 @@
         </section>-->
 
         <!-- dashbord -->
-        <h2> CRUD with Vue Js</h2>
 
         @yield('main_content')
 
@@ -107,6 +106,9 @@
         <!-- Jquery Core Js -->
 
         <script src={{asset("bower_components/adminbsb-materialdesign/plugins/jquery/jquery.min.js")}}></script>
+
+        @yield('script')
+
 
         <!-- Bootstrap Core Js -->
         <script src={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap/js/bootstrap.js")}}></script>
@@ -147,3 +149,5 @@
     </body>
 
 </html>
+
+@yield('modal_content')

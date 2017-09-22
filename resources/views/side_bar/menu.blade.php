@@ -28,7 +28,7 @@
 
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
+                    <a href="{{ url('membretribunal') }}"  class="mce-menu-item">
                         <span>MEMBRE TRIBUNAL</span>
                     </a>
 

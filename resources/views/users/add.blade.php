@@ -12,8 +12,8 @@
         </div>
         <div class="card">
             <div class="body">
-                <form class="sign_up" method="POST" action="{{ route('register') }}">
-                                {{ csrf_field() }}
+                <form class="sign_up" method="POST" action="{{ route('membretribunal.store') }}">
+                    {{ csrf_field() }}
 
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -67,20 +67,20 @@
                         </div>
                     </div>
 
-                        <div class="form-group">
-                            <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
-                            <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>
-                        </div>
-                        <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
-                       <div class="m-t-25 m-b--5 align-center">
+                    <div class="form-group">
+                        <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
+                        <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>
+                    </div>
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
+                    <div class="m-t-25 m-b--5 align-center">
                         <a href="sign-in.html">You already have a membership?</a>
                     </div>
 
 
 
 
-                            </form>
-                    </div>
+                </form>
             </div>
         </div>
+    </div>
 @stop

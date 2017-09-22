@@ -12,9 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('page_model');
 });
 
+Route::get('/membretribunal', 'MembreTribunalController@index');
 
 Route::resource('membretribunal', 'MembreTribunalController');
 Route::resource('dossiercorrectionnel', 'DossierCorrectionnelController');

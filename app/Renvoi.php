@@ -15,7 +15,7 @@ class Renvoi extends Model
 
     public function dossiers_correctionnels()
     {
-        return $this->belongsTo('DossierCorrectionnel');
+        return $this->belongsTo('App\DossierCorrectionnel');
     }
 
 }

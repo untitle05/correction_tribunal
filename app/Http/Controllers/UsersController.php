@@ -11,9 +11,7 @@ class UsersController extends Controller
     {
         $users = User::all();
 
-        return response([
-            'users' => $users
-        ]);
+        //return response(['users' => $users ]);
     } 
     //
 }

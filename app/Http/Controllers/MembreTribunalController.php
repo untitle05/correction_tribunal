@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\MembreTribunal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+
 class MembreTribunalController extends Controller
 {
 
@@ -13,7 +16,8 @@ class MembreTribunalController extends Controller
    */
   public function index()
   {
-    return view('membres_tribunal.membres_tribunal');
+    $membres = MembreTribunal::all(); 
+    return view('membres_tribunal.list', compact('membres'));
   }
 
   /**
@@ -23,7 +27,7 @@ class MembreTribunalController extends Controller
    */
   public function create()
   {
-    
+    return  view('membres_tribunal.list');
   }
 
   /**
@@ -31,8 +35,13 @@ class MembreTribunalController extends Controller
    *
    * @return Response
    */
-  public function store()
+  public function store(Request $r)
   {
+    if($r->ajax())
+    {
+      $membres =  MembreTribunal::create($r->all());
+      return response()->json($membres);
+    }
     
   }
 
@@ -42,9 +51,13 @@ class MembreTribunalController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function show($id)
+  public function show(Request $r)
   {
-    
+    if($r->ajax())
+    {
+      $membre =  MembreTribunal::find($r->id);
+      return Response($membre);
+    }
   }
 
   /**
@@ -55,7 +68,7 @@ class MembreTribunalController extends Controller
    */
   public function edit($id)
   {
-    
+      
   }
 
   /**
