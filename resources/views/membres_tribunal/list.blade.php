@@ -1,5 +1,13 @@
 @extends('page_model')
 
+@section('css')
+<style>
+    html{
+        overflow-y : scroll;
+    }
+</style>
+@stop
+
 @section('main_content')
     <section class="content">
         <div class="container-fluid">
@@ -8,7 +16,7 @@
                 <br />
                 <div class="table-responsive">
                     <div align="right">
-                        <button type="button" name="add" id="add" data-toggle="modal" data-target="#add_data_Modal" class="btn btn-warning" >Ajouter un nouveau membre</button>
+                        <button type="button" name="add" id="add" class="btn btn-warning" >Ajouter un nouveau membre</button>
                     </div>
                 </div>
             </div>
@@ -52,7 +60,7 @@
                                         <td>{{ $membre->telephone }}</td>
                                         <td>{{ $membre->grade }}</td>
                                         <td>
-                                            <button class="btn btn-xs btn-info" data-id="{{ $membre->id }}">Edit</button>
+                                            <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $membre->id }}">Edit</button>
                                             <button class="btn btn-xs btn-danger" data-id="{{ $membre->id }}">Supprimer</button>
                                         </td>
                                     </tr>
@@ -69,49 +77,20 @@
 @stop
 
 @section('modal_content')
-    <div id="dataModal" class="modal fade">
+     <div id="add_data_Modal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Informations du membre</h4>
                 </div>
-                <div class="modal-body" id="infos_membre">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="add_data_Modal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Ajout du membre</h4>
-                </div>
                 <div class="modal-body">
-                    <form id="insert_form" name="insert_form" method="POST" action="{{ route('membretribunal.store') }}">
+                    <form id="insert_form" method="POST" action="Nouveau" >
                         {{ csrf_field() }}
-                        <div class="form-group form-float">
-                            <div class="form-line{{ $errors->has('id') ? ' has-error' : '' }}">
-                                <input type="hidden" id="id" name="id" class="form-control">
-                                <label class="form-label">Nom du Membre</label>
-                                @if ($errors->has('id'))
-                                    <span class="help-block">
-                                                <strong>{{ $errors->first('id') }}</strong>
-                                            </span>
-                                @endif
-                            </div>
-                        </div>
-
+                        <input type="hidden" id="memberid" name="id">
                         <div class="form-group form-float">
                             <div class="form-line{{ $errors->has('nom') ? ' has-error' : '' }}">
-                                <input type="text" id="nom" name="nom" class="form-control">
-                                <label class="form-label">Nom du Membre</label>
+                                <input type="text" id="nom" name="nom" class="form-control" placeholder="Nom du Membre">
                                 @if ($errors->has('nom'))
                                     <span class="help-block">
                                                 <strong>{{ $errors->first('nom') }}</strong>
@@ -122,8 +101,7 @@
 
                         <div class="form-group form-float">
                             <div class="form-line{{ $errors->has('telephone') ? ' has-error' : '' }}">
-                                <input type="text" id="telephone" name="telephone" class="form-control">
-                                <label class="form-label">Telephone du Membre</label>
+                                <input type="text" id="telephone" name="telephone" class="form-control" placeholder="Telephone du Membre">
                                 @if ($errors->has('telephone'))
                                     <span class="help-block">
                                                 <strong>{{ $errors->first('telephone') }}</strong>
@@ -134,8 +112,7 @@
 
                         <div class="form-group form-float">
                             <div class="form-line{{ $errors->has('grade') ? ' has-error' : '' }}">
-                                <input type="text" id="grade" name="grade"class="form-control">
-                                <label class="form-label">Grade du Membre</label>
+                                <input type="text" id="grade" name="grade" class="form-control" placeholder="Grade du Membre">
                                 @if ($errors->has('grade'))
                                     <span class="help-block">
                                                 <strong>{{ $errors->first('grade') }}</strong>
@@ -144,16 +121,15 @@
                             </div>
                         </div>
 
-                        <br>
-                        <button name="insert" id="inserto" type="submit" class="btn btn-success" >OK</button>
+                        <input type="submit" id="save" value="Save" class="btn btn-primary">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+
+            </div>
             </div>
         </div>
-    </div>
+
 
     <script>
         $(document).ready(function () {
@@ -165,12 +141,27 @@
             });
 
         });
+
+        $('#add').on('click',function () {
+            $('#save').val('save');
+            $('#insert_form').trigger('reset');
+            $('#add_data_Modal').modal('show');
+
+        });
+
+
             $('#insert_form').on('submit', function (e) {
                 e.preventDefault();
-                var url = $(this).attr('action');
-                var post = $(this).attr('method');
-                var data = $(this).serialize();
+                var url = $('#insert_form').attr('action');
+                var data = $('#insert_form').serialize();
+                var type = 'POST';
+                var statut = $('#save').val();
 
+                if( statut == 'modifier')
+                {
+                    type = 'PUT';
+                    //data += '&id='+$(this).data('id');
+                }
                 if($('#nom').val()=='')
                 {
                     alert("Name is requred");
@@ -187,24 +178,32 @@
                 {
 
                     $.ajax({
-                        type: post,
+                        type: type,
                         url: url,
                         data: data,
                         success:function (data) {
                             console.log(data)
                             /*$('#insert_form')[0].reset();
-                            $('#add_data_Modal').modal('hide');
-                            $('#membre_table').html(data);*/
+                             $('#add_data_Modal').modal('hide');
+                             $('#membre_table').html(data);*/
 
-                            var row = '<tr>'+
-                                    '<td>'+ data.nom +'<td>'+
-                                    '<td>'+  data.telephone +'<td>'+
-                                    '<td>'+ data.grade +'<td>'+
+                            var row = '<tr id="membres'+ data.id+'" >' +
+                                    '<td>' + data.nom + '</td>' +
+                                    '<td>' + data.telephone + '</td>' +
+                                    '<td>' + data.grade + '</td>' +
                                     '<td>  ' +
-                                    '<button class="btn btn-xs btn-info" data-id="'+ data.id +'" > Edit </button>'+
-                                    '<button class="btn btn-xs btn-danger" data-id="'+data.id+'">Delete</button>'+ '</td>'+
+                                        '<button class="btn btn-xs btn-info" data-id="' + data.id + '" > Edit </button> ' +
+                                        '<button class="btn btn-xs btn-danger" data-id="' + data.id + '">Supprimer</button>'+
+                                    '</td>' +
                                     '</tr>';
-                             $('tbody').append(row);
+                            if (statut == 'save') {
+                                $('tbody').append(row);
+                            }
+                            else
+                            {
+                                $('#membres'+ data.id).replaceWith(row);
+                                $('#add_data_Modal').modal('hide');
+                            }
 
 
                         }
@@ -218,11 +217,11 @@
                 }
             });
 
-    //--------edit_modal-------------------------------
+    //--------update-------------------------------
         $('tbody').delegate('.btn-info','click',function () {
 
             var value = $(this).data('id');
-            var url = '{{ URL::to('membretribunal/show') }}';
+            var url = '{{ URL::to('listMembers') }}';
 
             // alert(value);
 
@@ -232,11 +231,11 @@
                 data : {'id':value},
 
                 success:function (data) {
-                    $('#id').val(data.id);
                     $('#nom').val(data.nom);
                     $('#telephone').val(data.telephone);
                     $('#grade').val(data.grade);
-                    $('#insert').val('modifier');
+                    $('#memberid').val(data.id);
+                    $('#save').val('modifier');
                     $('#add_data_Modal').modal('show');
 
                 }
@@ -244,5 +243,23 @@
             });
 
         });
+
+     //------------------supprimer--------------------
+        $('tbody').delegate('.btn-danger','click',function () {
+
+            var value= $(this).data('id');
+            var url = '{{ URL::to('deleteMember') }}';
+            if(confirm("etez vous sure de vouloir Supprimer")==true){
+
+                $.ajax({type : 'post',  url : url, data : {'id':value}, success:function () {
+                        $('#membres'+value).remove();
+
+                    }
+                });
+            }
+
+        });
+
+
     </script>
     @stop

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\MembreTribunal;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 
 class MembreTribunalController extends Controller
@@ -35,13 +36,9 @@ class MembreTribunalController extends Controller
    *
    * @return Response
    */
-  public function store(Request $r)
+  public function store()
   {
-    if($r->ajax())
-    {
-      $membres =  MembreTribunal::create($r->all());
-      return response()->json($membres);
-    }
+
     
   }
 
@@ -51,12 +48,22 @@ class MembreTribunalController extends Controller
    * @param  int  $id
    * @return Response
    */
+  
   public function show(Request $r)
   {
     if($r->ajax())
     {
       $membre =  MembreTribunal::find($r->id);
       return Response($membre);
+    }
+  }
+    
+  public function NewMember(Request $r)
+  {
+    if($r->ajax())
+    {
+      $membres =  MembreTribunal::create($r->all());
+      return response()->json($membres);
     }
   }
 
@@ -77,9 +84,31 @@ class MembreTribunalController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update($id)
+  
+  public function update()
   {
     
+  }
+  
+  
+  public function UpdateMember(Request $r)
+  {
+
+    if($r->ajax())
+    {
+      //recuperation de la clé d'un enregistrement
+      $membre =  MembreTribunal::find($r->id);
+
+      // recuperation de champ modifier
+      $membre->nom = $r->nom;
+      $membre->telephone = $r->telephone;
+      $membre->grade = $r->grade;
+
+      //enregistrement des modifications
+      $membre->save();
+
+      return Response($membre);
+    }
   }
 
   /**
@@ -90,7 +119,12 @@ class MembreTribunalController extends Controller
    */
   public function destroy($id)
   {
-    
+
+  }
+
+  public function delete(Request $r)
+  {
+    MembreTribunal::destroy($r->id);
   }
   
 }

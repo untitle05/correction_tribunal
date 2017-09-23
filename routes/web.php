@@ -15,13 +15,24 @@ Route::get('/', function () {
     return view('page_model');
 });
 
-Route::get('/membretribunal', 'MembreTribunalController@index');
+Route::get('/members', 'MembreTribunalController@index');
 
-Route::resource('membretribunal', 'MembreTribunalController');
-Route::resource('dossiercorrectionnel', 'DossierCorrectionnelController');
+Route::post('/Nouveau', 'MembreTribunalController@NewMember');
+
+Route::put('/Nouveau', 'MembreTribunalController@UpdateMember');
+
+Route::get('/listMembers', 'MembreTribunalController@show');
+
+Route::post('/deleteMember', 'MembreTribunalController@delete');
+
+
+
+
+
+/*Route::resource('dossiercorrectionnel', 'DossierCorrectionnelController');
 Route::resource('renvoi', 'RenvoiController');
 Route::resource('users', 'UsersController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');*/
