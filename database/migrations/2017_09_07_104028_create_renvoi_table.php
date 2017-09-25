@@ -11,7 +11,7 @@ class CreateRenvoiTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->string('motif_renvoi', 150)->unique()->nullable();
-			$table->datetime('date_renvoi')->unique()->nullable();
+			$table->date('date_renvoi')->unique()->nullable();
 			$table->integer('dossier_id')->unsigned();
 
 			$table->foreign('dossier_id')->references('id')->on('dossiers_correctionnels')

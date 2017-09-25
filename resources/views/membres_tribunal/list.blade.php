@@ -12,7 +12,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>NORMAL TABLES</h2>
+
                 <br />
                 <div class="table-responsive">
                     <div align="right">
@@ -26,9 +26,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                STRIPED ROWS
-                                <small>Use <code>.table-striped</code> to add zebra-striping to any table row within the
-                                    <code>&lt;tbody&gt;</code></small>
+                                LISTE DES MEMBRES
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -197,7 +195,7 @@
                                     '</td>' +
                                     '</tr>';
                             if (statut == 'save') {
-                                $('tbody').append(row);
+                                $('tbody').prepend(row);
                             }
                             else
                             {

@@ -29,8 +29,34 @@ Route::post('/deleteMember', 'MembreTribunalController@delete');
 
 
 
-/*Route::resource('dossiercorrectionnel', 'DossierCorrectionnelController');
-Route::resource('renvoi', 'RenvoiController');
+
+Route::get('dossiers', 'DossierCorrectionnelController@index');
+
+
+Route::get('NewDossiers', [
+    'as'   => 'creerDossier',
+    'uses' => 'DossierCorrectionnelController@create'
+]);
+
+
+Route::post('NewDossiers', [
+    'as'   => 'saveDossier',
+    'uses' => 'DossierCorrectionnelController@store'
+]);
+
+Route::get('updateDossiers', [
+    'as'   => 'upDossier',
+    'uses' => 'DossierCorrectionnelController@edit'
+]);
+
+Route::post('updateDossiers', [
+    'as'   => 'downDossier',
+    'uses' => 'DossierCorrectionnelController@update'
+]);
+
+
+Route::get('deleteDossier', 'DossierCorrectionnelController@destroy');
+/*Route::resource('renvoi', 'RenvoiController');
 Route::resource('users', 'UsersController');
 
 Auth::routes();

@@ -42,21 +42,7 @@
 
     <body class="theme-red">
         <!-- Page Loader -->
-        <div class="page-loader-wrapper">
-            <div class="loader">
-                <div class="preloader">
-                    <div class="spinner-layer pl-red">
-                        <div class="circle-clipper left">
-                            <div class="circle"></div>
-                        </div>
-                        <div class="circle-clipper right">
-                            <div class="circle"></div>
-                        </div>
-                    </div>
-                </div>
-                <p>Please wait...</p>
-            </div>
-        </div>
+
         <!-- #END# Page Loader -->
 
 
@@ -67,9 +53,7 @@
 
         <!-- Search Bar -->
         <div class="search-bar">
-            <div class="search-icon">
-                <i class="material-icons">search</i>
-            </div>
+
             <input type="text" placeholder="START TYPING...">
             <div class="close-search">
                 <i class="material-icons">close</i>
@@ -91,15 +75,15 @@
         <section>-->
         <!-- Left Sidebar -->
 
-        @include('side_bar.side_bar')
+
 
         <!-- #END# Right Sidebar
         </section>-->
 
         <!-- dashbord -->
-
+    <div style="position: absolute; left: -320px; top: 30px;">
         @yield('main_content')
-
+    </div>
         <!-- fin -->
 
         <!-- Jquery Core Js
@@ -139,10 +123,10 @@
         <script src={{asset("bower_components/adminbsb-materialdesign/plugins/jquery-sparkline/jquery.sparkline.js")}}></script>
 
         <!-- Custom Js -->
-        <script src={{asset("bower_components/adminbsb-materialdesign/js/admin.js")}}></script>
         <!--<script src={{asset("bower_components/adminbsb-materialdesign/js/pages/index.js")}}></script>-->
 
         <!-- Demo Js -->
+        <script src={{asset("bower_components/adminbsb-materialdesign/js/demo.js")}}></script>
         <script src={{asset("bower_components/adminbsb-materialdesign/plugins/autosize/autosize.js")}}></script>
 
 
