@@ -32,7 +32,7 @@
 
                 <li>
                     <a href="{{ url('Renvois') }}" class="mce-menu-item">
-                        <span>RENVOI DOSSIERS CORRECTIONNELS</span>
+                        <span>RENVOI DOSSIERS</span>
                     </a>
 
                 </li>
