@@ -49,6 +49,8 @@ Route::get('/listRenvois', 'RenvoiController@show');
 
 Route::post('/deleteRenvoi', 'RenvoiController@destroy');
 
+Route::get('/sql','DossierCorrectionnelController@SqlText');
+
 
 //// Route in Dossiers Correctionnel /////////////////////////////////////////////
 
@@ -82,8 +84,8 @@ Route::get('deleteDossier', 'DossierCorrectionnelController@destroy');
 //// Fin Route in DossierCorrectionnel /////////////////////////////////////////////
 
 /*Route::resource('renvoi', 'RenvoiController');
-Route::resource('users', 'UsersController');
+Route::resource('users', 'UsersController');*/
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');*/
+Route::get('/home', 'HomeController@index')->name('home');

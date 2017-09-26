@@ -34,6 +34,8 @@ class DossierCorrectionnelController extends Controller
   	return view('dossiers.list', compact('dossierCorrectionnels', 'links'));
   }
 
+
+
   /**
    * Show the form for creating a new resource.
    *
