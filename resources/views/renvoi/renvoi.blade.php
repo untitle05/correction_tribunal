@@ -51,7 +51,7 @@
 								<tr>
 									<th>Motif du Renvoi</th>
 									<th>Date de Renvoi</th>
-									<th>Dossier à Renvoyer</th>
+									<th>Nom de Prevenu du dossier</th>
 									<th>Action</th>
 								</tr>
 								</thead>
@@ -60,7 +60,7 @@
 									<tr id="membres{{$renvoi->id}}">
 										<td>{{ $renvoi->motif_renvoi }}</td>
 										<td>{{ $renvoi->date_renvoi }}</td>
-										<td>{{ $renvoi->dossier_id }}</td>
+										<td>{{ $renvoi->prevenu }}</td>
 										<td>
 											<button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $renvoi->id }}">Edit</button>
 											<button class="btn btn-xs btn-danger" data-id="{{ $renvoi->id }}">Supprimer</button>
@@ -234,6 +234,7 @@
                     $('#motif_renvoi').val(data.motif_renvoi);
                     $('#date_renvoi').val(data.date_renvoi);
                     $('#dossier_id').val(data.dossier_id);
+                    $('#partie_civile').val(data.partie_civile)
                     $('#memberid').val(data.id);
                     $('#save').val('modifier');
                     $('#add_data_Modal').modal('show');

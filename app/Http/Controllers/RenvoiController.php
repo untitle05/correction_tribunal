@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 
 use App\Renvoi;
 use App\DossierCorrectionnel;
@@ -18,9 +19,13 @@ class RenvoiController extends Controller
    */
   public function index()
   {
-    $renvois = Renvoi::all();
+    //$renvois = Renvoi::all();
+      $renvois = DB::table('dossiers_correctionnels')
+          ->join('renvoi', 'dossiers_correctionnels.id', '=', 'renvoi.dossier_id')
+          ->select('renvoi.*', 'dossiers_correctionnels.prevenu')
+          ->get();
 
-    return view('renvoi.renvoi',compact('renvois'),['dossiers' => DossierCorrectionnel::pluck('numero_ordre','id')]);
+    return view('renvoi.renvoi',compact('renvois'),['dossiers' => DossierCorrectionnel::pluck('prevenu','id')]);
   }
 
   /**
@@ -53,7 +58,16 @@ class RenvoiController extends Controller
   {
       if($r->ajax())
       {
-          $renvoi =  Renvoi::find($r->id);
+
+
+
+          //$renvoi =  Renvoi::find($r->id);
+
+          $renvoi = DB::table('dossiers_correctionnels')
+              ->where('renvoi.id',$r->id)
+              ->join('renvoi', 'dossiers_correctionnels.id', '=', 'renvoi.dossier_id')
+              ->select('renvoi.*', 'dossiers_correctionnels.prevenu')
+              ->get();
           return Response($renvoi);
       }
   }

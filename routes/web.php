@@ -14,6 +14,22 @@
 Route::get('/', function () {
     return view('page_model');
 });
+/*Route::get('/',function (){
+    /* $user = DB::table('users')
+        ->pluck('name');
+
+
+
+    $users = DB::table('dossiers_correctionnels')
+        ->join('renvoi', 'dossiers_correctionnels.id', '=', 'renvoi.dossier_id')
+        ->whereid('dossiers_correctionnels.id',33)
+       // ->select('renvoi.*', 'dossiers_correctionnels.numero_ordre')
+        ->get();
+    foreach ($users as $user)
+    {
+        echo $user->numero_ordre .'<br>';
+    }
+});*/
 
 
 //// Route in Member /////////////////////////////////////////////
@@ -49,7 +65,6 @@ Route::get('/listRenvois', 'RenvoiController@show');
 
 Route::post('/deleteRenvoi', 'RenvoiController@destroy');
 
-Route::get('/sql','DossierCorrectionnelController@SqlText');
 
 
 //// Route in Dossiers Correctionnel /////////////////////////////////////////////
