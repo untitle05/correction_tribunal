@@ -1,3 +1,4 @@
+
 @extends('page_model')
 
 @section('css')
@@ -75,6 +76,8 @@
 @stop
 
 @section('modal_content')
+    <div><p>bonjour les gars</p></div>
+
      <div id="add_data_Modal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -127,8 +130,11 @@
             </div>
             </div>
         </div>
+    @stop
 
 
+
+@section('js')
     <script>
         $(document).ready(function () {
 
@@ -141,81 +147,83 @@
         });
 
         $('#add').on('click',function () {
+            console.log('add-click', 'ça passe');
+
+            $('#add_data_Modal').modal('show');
             $('#save').val('save');
             $('#insert_form').trigger('reset');
-            $('#add_data_Modal').modal('show');
 
         });
 
 
-            $('#insert_form').on('submit', function (e) {
-                e.preventDefault();
-                var url = $('#insert_form').attr('action');
-                var data = $('#insert_form').serialize();
-                var type = 'POST';
-                var statut = $('#save').val();
+        $('#insert_form').on('submit', function (e) {
+            e.preventDefault();
+            var url = $('#insert_form').attr('action');
+            var data = $('#insert_form').serialize();
+            var type = 'POST';
+            var statut = $('#save').val();
 
-                if( statut == 'modifier')
-                {
-                    type = 'PUT';
-                    //data += '&id='+$(this).data('id');
-                }
-                if($('#nom').val()=='')
-                {
-                    alert("Name is requred");
-                }
-                else if($('#telephone').val()=='')
-                {
-                    alert("le numero de telephone est requis");
-                }
-                else if($('#grade').val()=='')
-                {
-                    alert("le grade est requis");
-                }
-                else
-                {
+            if( statut == 'modifier')
+            {
+                type = 'PUT';
+                //data += '&id='+$(this).data('id');
+            }
+            if($('#nom').val()=='')
+            {
+                alert("Name is requred");
+            }
+            else if($('#telephone').val()=='')
+            {
+                alert("le numero de telephone est requis");
+            }
+            else if($('#grade').val()=='')
+            {
+                alert("le grade est requis");
+            }
+            else
+            {
 
-                    $.ajax({
-                        type: type,
-                        url: url,
-                        data: data,
-                        success:function (data) {
-                            console.log(data)
-                            /*$('#insert_form')[0].reset();
-                             $('#add_data_Modal').modal('hide');
-                             $('#membre_table').html(data);*/
+                $.ajax({
+                    type: type,
+                    url: url,
+                    data: data,
+                    success:function (data) {
+                        console.log(data)
+                        /*$('#insert_form')[0].reset();
+                         $('#add_data_Modal').modal('hide');
+                         $('#membre_table').html(data);*/
 
-                            var row = '<tr id="membres'+ data.id+'" >' +
-                                    '<td>' + data.nom + '</td>' +
-                                    '<td>' + data.telephone + '</td>' +
-                                    '<td>' + data.grade + '</td>' +
-                                    '<td>  ' +
-                                        '<button class="btn btn-xs btn-info" data-id="' + data.id + '" > Edit </button> ' +
-                                        '<button class="btn btn-xs btn-danger" data-id="' + data.id + '">Supprimer</button>'+
-                                    '</td>' +
-                                    '</tr>';
-                            if (statut == 'save') {
-                                $('tbody').prepend(row);
-                            }
-                            else
-                            {
-                                $('#membres'+ data.id).replaceWith(row);
-                                $('#add_data_Modal').modal('hide');
-                            }
-
-
+                        var row = '<tr id="membres'+ data.id+'" >' +
+                            '<td>' + data.nom + '</td>' +
+                            '<td>' + data.telephone + '</td>' +
+                            '<td>' + data.grade + '</td>' +
+                            '<td>  ' +
+                            '<button class="btn btn-xs btn-info" data-id="' + data.id + '" > Edit </button> ' +
+                            '<button class="btn btn-xs btn-danger" data-id="' + data.id + '">Supprimer</button>'+
+                            '</td>' +
+                            '</tr>';
+                        if (statut == 'save') {
+                            $('tbody').prepend(row);
+                        }
+                        else
+                        {
+                            $('#membres'+ data.id).replaceWith(row);
+                            $('#add_data_Modal').modal('hide');
                         }
 
-                    });
+
+                    }
+
+                });
 
 
 
-     //---------reset_formulaire--------------------
-                    $(this).trigger('reset');
-                }
-            });
+                //---------reset_formulaire--------------------
+                $(this).trigger('reset');
+            }
+        });
 
-    //--------update-------------------------------
+        //--------update-------------------------------
         $('tbody').delegate('.btn-info','click',function () {
 
             var value = $(this).data('id');
@@ -242,7 +250,7 @@
 
         });
 
-     //------------------supprimer--------------------
+        //------------------supprimer--------------------
         $('tbody').delegate('.btn-danger','click',function () {
 
             var value= $(this).data('id');
@@ -250,9 +258,9 @@
             if(confirm("etez vous sure de vouloir Supprimer")==true){
 
                 $.ajax({type : 'post',  url : url, data : {'id':value}, success:function () {
-                        $('#membres'+value).remove();
+                    $('#membres'+value).remove();
 
-                    }
+                }
                 });
             }
 
@@ -260,4 +268,5 @@
 
 
     </script>
-    @stop
+
+@endsection

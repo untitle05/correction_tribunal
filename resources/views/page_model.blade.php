@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <title>SGDC</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -111,12 +111,13 @@
             <div class="user-info">
 
                 <div class="image">
-                    <img src="/uploads/avatars/profile.png" style="width:50px; height:50px; position:absolute; top:10px; left:10px; border-radius:50%">
-                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:50px; height:50px; position:absolute; top:10px; left:10px; border-radius:50%">
+                    <!--<img src="/uploads/avatars/profile.png" style="width:50px; height:50px; positèion:absolute; top:10px; left:10px; border-radius:50%">-->
+                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:80px; height:80px; position:absolute; top:10px; left:10px; border-radius:50%">
                     <!-- <img src="bower_components/adminbsb-materialdesign/images/user.png" width="48" height="48" alt="User" />-->
                 </div>
 
                 <div class="info-container">
+                    <br><br>
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
                     <div class="email">{{ Auth::user()->email }}</div>
                     <div class="btn-group user-helper-dropdown">
@@ -168,12 +169,12 @@
 <!-- Jquery Core Js
 -->
 <!-- Jquery Core Js -->
-
-<script src={{asset("bower_components/adminbsb-materialdesign/plugins/jquery/jquery.min.js")}}></script>
+@yield('modal_content')
 
 
 @yield('script')
 
+<script src={{asset("bower_components/adminbsb-materialdesign/plugins/jquery/jquery.min.js")}}></script>
 
 
 <!-- Bootstrap Core Js -->

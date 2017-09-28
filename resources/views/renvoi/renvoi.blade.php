@@ -131,6 +131,10 @@
 	</div>
 
 
+
+@stop
+
+@section('js')
 	<script>
         $(document).ready(function () {
 
@@ -263,7 +267,6 @@
 
 
 	</script>
-@stop
-@section('js')
+
 	{!! Html::script('bower_components/adminbsb-materialdesign/plugins/bootstrap-select/js/bootstrap-select.js') !!}
 	@stop

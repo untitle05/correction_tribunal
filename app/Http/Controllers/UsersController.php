@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Auth;
+use Image;
 
 class UsersController extends Controller
 {

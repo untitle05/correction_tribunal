@@ -35,15 +35,18 @@ Route::get('/', function () {
 //// Route in Member /////////////////////////////////////////////
 
 
-Route::get('/members', 'MembreTribunalController@index');
+Route::group(['middleware' => ['auth']], function() {
 
-Route::post('/Nouveau', 'MembreTribunalController@NewMember');
+    Route::get('/members', 'MembreTribunalController@index');
 
-Route::put('/Nouveau', 'MembreTribunalController@UpdateMember');
+    Route::post('/Nouveau', 'MembreTribunalController@NewMember');
 
-Route::get('/listMembers', 'MembreTribunalController@show');
+    Route::put('/Nouveau', 'MembreTribunalController@UpdateMember');
 
-Route::post('/deleteMember', 'MembreTribunalController@delete');
+    Route::get('/listMembers', 'MembreTribunalController@show');
+
+    Route::post('/deleteMember', 'MembreTribunalController@delete');
+});
 
 //// Fin Route in Member /////////////////////////////////////////////
 
@@ -104,3 +107,10 @@ Route::resource('users', 'UsersController');*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/////// Route Profile////////////////////////////////////////////////////////////////////
+///
+Route::get('profile', 'UsersController@profile');
+Route::post('profile', 'UsersController@update_avatar');
+
+/////// Route Profile////////////////////////////////////////////////////////////////////

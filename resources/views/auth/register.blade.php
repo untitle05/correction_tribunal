@@ -7,8 +7,8 @@
 @section('form-sign-in')
     <div class="signup-box" >
         <div class="logo">
-            <a href="javascript:void(0);">Admin<b>BSB</b></a>
-            <small>Admin BootStrap Based - Material Design</small>
+            <a href="javascript:void(0);"><b>Système de Gestion des Dossiers Correctionnels</b></a>
+            <small>Tribunal de Grande Instance de Yaoundé</small>
         </div>
         <div class="card">
             <div class="body">
@@ -57,7 +57,7 @@
                         </div>
                     </div>
 
-                    <div class="input-group">
+                     <div class="input-group">
                         <span class="input-group-addon">
                           <i class="material-icons">lock</i>
                         </span>
@@ -69,11 +69,11 @@
 
                         <div class="form-group">
                             <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
-                            <label for="terms">I read and agree to the <a href="javascript:void(0);">terms of usage</a>.</label>
+                            <label for="terms">Cochez Si c'est un Adminstrateur <a href="javascript:void(0);">SGDC</a>.</label>
                         </div>
                         <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
                        <div class="m-t-25 m-b--5 align-center">
-                        <a href="sign-in.html">You already have a membership?</a>
+                        <a href="{{ url('#') }}">You already have a membership?</a>
                     </div>
 
 

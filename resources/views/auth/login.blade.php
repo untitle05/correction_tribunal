@@ -7,15 +7,15 @@
 @section('form-sign-in')
     <div class="login-box">
         <div class="logo">
-            <a href="javascript:void(0);">Admin<b>BSB</b></a>
-            <small>Admin BootStrap Based - Material Design</small>
+            <a href="javascript:void(0);"><b>Système de Gestion des Dossiers Correctionnels</b></a>
+            <small>Tribunal de Grande Instance de Yaoundé</small>
         </div>
         <div class="card">
             <div class="body">
                         <form class="sign_up" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
 
-                            <div class="msg">Sign in to start your session</div>
+                            <div class="msg">Veuillez vous Authentifier</div>
 
                             <div class="input-group">
                                 <span class="input-group-addon">

@@ -1,7 +1,6 @@
-@extends('page_model_list')
+@extends('page_model')
 
 @section('css')
-    <link href={{asset("bower_components/sweetalert2/dist/sweetalert2.min.css")}} rel="stylesheet" />
     @stop
 
 @section('main_content')
@@ -79,10 +78,7 @@
     <!-- #END# Striped Rows -->
 @stop
 
-@section('js')
-    <script src={{asset("bower_components/sweetalert2/dist/sweetalert2.min.js")}}></script>
 
-@stop
 
 @section('modal_content')
     <div id="add_data_Modal" class="modal fade">
@@ -139,6 +135,10 @@
     </div>
 
 
+
+@stop
+
+@section('js')
     <script>
         $(document).ready(function () {
 
@@ -196,14 +196,14 @@
                          $('#membre_table').html(data);*/
 
                         var row = '<tr id="membres'+ data.id+'" >' +
-                                '<td>' + data.nom + '</td>' +
-                                '<td>' + data.telephone + '</td>' +
-                                '<td>' + data.grade + '</td>' +
-                                '<td>  ' +
-                                '<button class="btn btn-xs btn-info" data-id="' + data.id + '" > Edit </button> ' +
-                                '<button class="btn btn-xs btn-danger" data-id="' + data.id + '">Supprimer</button>'+
-                                '</td>' +
-                                '</tr>';
+                            '<td>' + data.nom + '</td>' +
+                            '<td>' + data.telephone + '</td>' +
+                            '<td>' + data.grade + '</td>' +
+                            '<td>  ' +
+                            '<button class="btn btn-xs btn-info" data-id="' + data.id + '" > Edit </button> ' +
+                            '<button class="btn btn-xs btn-danger" data-id="' + data.id + '">Supprimer</button>'+
+                            '</td>' +
+                            '</tr>';
                         if (statut == 'save') {
                             $('tbody').append(row);
                         }
@@ -271,4 +271,4 @@
 
 
     </script>
-@stop
+    @stop
