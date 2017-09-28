@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('page_model');
+    return view('welcome');
 });
 /*Route::get('/',function (){
     /* $user = DB::table('users')

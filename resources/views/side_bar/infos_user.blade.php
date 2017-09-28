@@ -5,8 +5,8 @@
     </div>
 
     <div class="info-container">
-        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">steve-it</div>
-        <div class="email">steve-it@example.com</div>
+        <img src="/uploads/avatars/{{ $user->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+        <h2>{{ $user->name }}'s Profile</h2>
         <div class="btn-group user-helper-dropdown">
             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
             <ul class="dropdown-menu pull-right">
@@ -16,5 +16,8 @@
             </ul>
         </div>
     </div>
+
+
+
 
 </div>

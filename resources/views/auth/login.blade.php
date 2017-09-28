@@ -61,7 +61,7 @@
                                     <a href={{url('register')}}>Register Now!</a>
                                 </div>
                                 <div class="col-xs-6 align-right">
-                                    <a href="{{ route('password.request') }}">Forgot Password?</a>
+                                    <a href="{{ url('#') }}">Forgot Password?</a>
                                 </div>
                             </div>
 
