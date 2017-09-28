@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 /*Route::get('/',function (){
     /* $user = DB::table('users')
@@ -96,7 +96,7 @@ Route::post('updateDossiers', [
 
 Route::get('deleteDossier', 'DossierCorrectionnelController@destroy');
 
-//// Fin Route in DossierCorrectionnel /////////////////////////////////////////////
+//// End Route in DossierCorrectionnel /////////////////////////////////////////////
 
 /*Route::resource('renvoi', 'RenvoiController');
 Route::resource('users', 'UsersController');*/
