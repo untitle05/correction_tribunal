@@ -20,7 +20,7 @@ class Renvoi extends Model
 
     public function membres_tribunal()
     {
-         return $this->belongsTo('App\MembreTribunal', 'membres_renvoi', 'renvoi_id', 'membres_id');
+         return $this->belongsToMany('App\MembreTribunal', 'membres_renvoi', 'renvoi_id', 'membres_id');
     }
 
 }

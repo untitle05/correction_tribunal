@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Renvoi;
 use App\DossierCorrectionnel;
+use App\MembreTribunal;
 
 class RenvoiController extends Controller 
 {
@@ -78,20 +79,35 @@ class RenvoiController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function edit($id)
+  public function edit(Request $r)
   {
-    
+      $dossier =  DB::table('dossiers_correctionnels')
+                ->where('id', $r->id)
+                ->select('dossiers_correctionnels.id', 'dossiers_correctionnels.partie_civile', 'dossiers_correctionnels.prevenu' )
+                ->get();
+
+      return view('renvoi.add', ['dossier'=> $dossier[0],
+                                         'membres'=>MembreTribunal::pluck('nom', 'id')
+      ]);
   }
 
   //nouveau renvoi
 
-    public function NewRenvoi(Request $r)
+    public function NewRenvoi(Request $request)
     {
-        if($r->ajax())
-        {
-            $renvoi =  Renvoi::create($r->all());
-            return response()->json($renvoi);
-        }
+
+        $renvoi = new Renvoi([
+            'motif_renvoi' => $request['motif_renvoi'],
+            'date_renvoi' => $request['date_renvoi'],
+            'dossier_id' => (int)($request['dossier_id']),
+            ]);
+
+        $renvoi->save();
+//    $membres = MembreTribunal::find($request->membre_id);
+//    $dossier->membres_tribunal()->save($membres);
+        $renvoi->membres_tribunal()->attach($request->membre_id);
+
+        return redirect('Renvois')->withOk("le renvoi du dossier");
     }
 
 

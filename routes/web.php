@@ -68,6 +68,11 @@ Route::get('/listRenvois', 'RenvoiController@show');
 
 Route::post('/deleteRenvoi', 'RenvoiController@destroy');
 
+Route::get('/NewRenvoi', [
+    'as'   => 'editerRenvoi',
+    'uses' => 'RenvoiController@edit'
+]);
+
 
 
 //// Route in Dossiers Correctionnel /////////////////////////////////////////////
