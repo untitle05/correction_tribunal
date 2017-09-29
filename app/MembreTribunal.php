@@ -18,4 +18,8 @@ class MembreTribunal extends Model
         return $this->belongsToMany('App\DossierCorrectionnel');
     }
 
+    public function renvoi()
+    {
+        return $this->belongsToMany('App\Renvoi');
+    }
 }

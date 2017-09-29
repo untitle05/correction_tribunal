@@ -18,4 +18,9 @@ class Renvoi extends Model
         return $this->belongsTo('App\DossierCorrectionnel');
     }
 
+    public function membres_tribunal()
+    {
+         return $this->belongsTo('App\MembreTribunal', 'membres_renvoi', 'renvoi_id', 'membres_id');
+    }
+
 }
