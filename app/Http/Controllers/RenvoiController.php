@@ -20,12 +20,12 @@ class RenvoiController extends Controller
   public function index()
   {
     //$renvois = Renvoi::all();
-      $renvois = DB::table('dossiers_correctionnels')
-          ->join('renvoi', 'dossiers_correctionnels.id', '=', 'renvoi.dossier_id')
-          ->select('renvoi.*', 'dossiers_correctionnels.prevenu')
+      $dossiers = DB::table('dossiers_correctionnels')
+          //->join('renvoi', 'dossiers_correctionnels.id', '=', 'renvoi.dossier_id')
+          //->select('renvoi.*', 'dossiers_correctionnels.prevenu')
           ->get();
 
-    return view('renvoi.renvoi',compact('renvois'),['dossiers' => DossierCorrectionnel::pluck('prevenu','id')]);
+    return view('renvoi.listrenvoi',compact('dossiers'));
   }
 
   /**

@@ -7,9 +7,12 @@
         overflow-y : scroll;
     }
 </style>
+{!! Html::style('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') !!}
+
 @stop
 
 @section('main_content')
+
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -17,7 +20,7 @@
                 <br />
                 <div class="table-responsive">
                     <div align="right">
-                        <button type="button" name="add" id="add" class="btn btn-warning" >Ajouter un nouveau membre</button>
+                        <button type="button" name="add" id="add" class="btn btn-warning" title="Ajouter"><i class="material-icons">add_box</i></button>
                     </div>
                 </div>
             </div>
@@ -27,12 +30,11 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                LISTE DES MEMBRES
+                                LISTE DES MEMEBRES
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
@@ -43,29 +45,50 @@
                                 </li>
                             </ul>
                         </div>
-                        <div id="membre_table" class="body table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Nom du Membre</th>
-                                    <th>Numero de Telephone</th>
-                                    <th>grade</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($membres as $membre)
-                                    <tr id="membres{{$membre->id}}">
-                                        <td>{{ $membre->nom }}</td>
-                                        <td>{{ $membre->telephone }}</td>
-                                        <td>{{ $membre->grade }}</td>
-                                        <td>
-                                            <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $membre->id }}">Edit</button>
-                                            <button class="btn btn-xs btn-danger" data-id="{{ $membre->id }}">Supprimer</button>
-                                        </td>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                    <thead>
+
+                                    <tr>
+                                        <th>Nom du Membre</th>
+                                        <th>Numero de Telephone</th>
+                                        <th>grade</th>
+                                        <th class="noExport">Action</th>
                                     </tr>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                    @foreach($membres as $membre)
+                                        <tr id="membres{{$membre->id}}">
+                                            <td>{{ $membre->nom }}</td>
+                                            <td>{{ $membre->telephone }}</td>
+                                            <td>{{ $membre->grade }}</td>
+                                            <td>
+                                                <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $membre->id }}"title="voir"><i class="material-icons">list</i></button>
+                                                <button class="btn btn-xs btn-danger" data-id="{{ $membre->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
+
+                                            </td>
+                                        </tr>
                                     @endforeach
-                                </tbody>
-                            </table>
+
+                                    </tbody>
+
+                                    <tfoot>
+
+                                    <tr>
+                                        <th>Nom du Membre</th>
+                                        <th>Numero de Telephone</th>
+                                        <th>grade</th>
+                                        <th class="noExport">Action</th>
+                                    </tr>
+                                    </tfoot>
+
+                                </table>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -76,14 +99,13 @@
 @stop
 
 @section('modal_content')
-    <div><p>bonjour les gars</p></div>
 
      <div id="add_data_Modal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Informations du membre</h4>
+                    <h4 class="modal-title">Informations du membre </h4>
                 </div>
                 <div class="modal-body">
                     <form id="insert_form" method="POST" action="Nouveau" >
@@ -198,8 +220,8 @@
                             '<td>' + data.telephone + '</td>' +
                             '<td>' + data.grade + '</td>' +
                             '<td>  ' +
-                            '<button class="btn btn-xs btn-info" data-id="' + data.id + '" > Edit </button> ' +
-                            '<button class="btn btn-xs btn-danger" data-id="' + data.id + '">Supprimer</button>'+
+                            '<button class="btn btn-xs btn-info" data-id="' + data.id + '" title="voir"><i class="material-icons">list</i></button> ' +
+                            '<button class="btn btn-xs btn-danger" data-id="' + data.id + '"title="Supprimer"><i class="material-icons">remove</i></button>'+
                             '</td>' +
                             '</tr>';
                         if (statut == 'save') {
@@ -267,6 +289,35 @@
         });
 
 
+    </script>
+    {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/jquery.dataTables.js') !!}
+    {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') !!}
+    {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js') !!}
+    {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.flash.min.js') !!}
+    {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/jszip.min.js') !!}
+    {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/pdfmake.min.js') !!}
+    {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/vfs_fonts.js') !!}
+    {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.html5.min.js') !!}
+    {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.print.min.js') !!}
+    <script>
+        $(function () {
+            $('.js-exportable').DataTable({
+                dom: 'Bfrtip',
+                responsive: true,
+                buttons: [
+                    'copy',
+                    'csv',
+                    'excel',
+                    {
+                        extend:'pdf',
+                        exportOptions:{
+                            columns:"thead th:not(.noExport)"
+                        }
+                    },
+                    'print'
+                ]
+            });
+        });
     </script>
 
 @endsection
