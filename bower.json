@@ -1,0 +1,22 @@
+{
+  "name": "correction_tribunal",
+  "description": "",
+  "main": "",
+  "authors": [
+    "aboudi christian patrick <aboudisecu@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/untitle05/correction_tribunal",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sweetalert2": "^6.9.1",
+    "vue": "^2.4.2"
+  }
+}

@@ -2,7 +2,7 @@
     <ul class="list">
         <li class="header">TABLEAU DE BORD</li>
         <li class="active">
-            <a href='{!! url('#'); !!}'>
+            <a href='{!! url('#')!!}'>
 
                 <i class="material-icons">home</i>
                 <span>Home</span>
@@ -15,81 +15,30 @@
                 <span>SECTION TRIBUNAL</span>
             </a>
             <ul class="ml-menu">
-                <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>JURY</span>
-                    </a>
 
-                </li>
                 <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>COMPOSITION MEMBRE JURY</span>
-                    </a>
-
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
+                    <a href="{{ url('members') }}"  class="mce-menu-item">
                         <span>MEMBRE TRIBUNAL</span>
                     </a>
 
                 </li>
-            </ul>
-        </li><li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons"></i>
-                <span>DOSSIERS CORRECTIONNELS</span>
-            </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>RENVOI</span>
-                    </a>
 
-                </li>
                 <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>DOSSIERS</span>
-                    </a>
-
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>CONSULTATIONS</span>
+                    <a href="{{ url('dossiers') }}" class="mce-menu-item">
+                        <span>DOSSIERS CORRECTIONNELS</span>
                     </a>
 
                 </li>
 
+                <li>
+                    <a href="{{ url('Renvois') }}" class="mce-menu-item">
+                        <span>RENVOI DOSSIERS</span>
+                    </a>
+
+                </li>
             </ul>
         </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons"></i>
-                <span>ADMINISTRATION</span>
-            </a>
-            <ul class="ml-menu">
 
-                <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>GREFFRIES</span>
-                    </a>
-
-                </li>
-                <li>
-                    <a href="{!! url('test') !!}" class="mce-menu-item">
-                        <span>UTILISATEURS</span>
-                    </a>
-
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="mce-menu-item">
-                        <span>PROFILS</span>
-                    </a>
-
-                </li>
-
-
-            </ul>
-        </li>
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons"></i>

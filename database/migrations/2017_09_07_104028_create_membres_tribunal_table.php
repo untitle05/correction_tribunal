@@ -11,7 +11,7 @@ class CreateMembresTribunalTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->string('nom', 200)->unique();
-			$table->integer('tel')->unique();
+			$table->string('telephone', 100)->unique();
 			$table->string('grade', 100)->nullable();
 		});
 	}
