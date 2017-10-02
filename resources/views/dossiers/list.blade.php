@@ -132,7 +132,7 @@
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <button class="btn btn-xs btn-info" name="edit" id="edit" data-target="#add_data_Modal" data-id="{{ $dossier->id }}" title="voir"><i class="material-icons">list</i></button>
+                                                <a class="btn btn-xs btn-info"  href ="{{ action('DossierCorrectionnelController@edit', ['id' => $dossier->id]) }}" title="Renvoyez le dossier" ><i class="material-icons">create</i></a>
                                                 <button class="btn btn-xs btn-danger" data-id="{{ $dossier->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
                                                 <a class="btn btn-xs btn-warning " href ="{{ action('RenvoiController@edit', ['id' => $dossier->id]) }}" title="Renvoyez le dossier"> <i class="material-icons">call_missed_outgoing</i></a>
 
@@ -373,6 +373,7 @@
     {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/vfs_fonts.js') !!}
     {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.html5.min.js') !!}
     {!! Html::script('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/extensions/export/buttons.print.min.js') !!}
+
     <script>
         $(function () {
             $('.js-exportable').DataTable({

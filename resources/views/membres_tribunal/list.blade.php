@@ -1,5 +1,5 @@
 
-@extends('page_model')
+@extends('page_model', ['hideSidebar' => true])
 
 @section('css')
 <style>
@@ -15,6 +15,9 @@
 
     <section class="content">
         <div class="container-fluid">
+
+            <div style="text-align: center"><button class="btn btn-primary bars">Afficher/Cacher le Menu</button><br></div>
+            
             <div class="block-header">
 
                 <br />
@@ -28,9 +31,9 @@
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="header">
+                        <div class="header toto">
                             <h2>
-                                LISTE DES MEMEBRES
+                                LISTE DES MEMBRES
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -318,6 +321,10 @@
                 ]
             });
         });
+
+//--------------js learning----------------------------------------
+
+
     </script>
 
 @endsection

@@ -1,6 +1,6 @@
 @extends('page_model')
 
-@section('css')
+@sectioZzn('css')
     <link href={{asset("css/sweetalert2.min.css")}} rel="stylesheet" />
     <link href={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap-select/css/bootstrap-select.css")}} rel="stylesheet">
     <link href={{asset("bower_components/adminbsb-materialdesign/plugins/waitme/waitMe.css")}} rel="stylesheet">

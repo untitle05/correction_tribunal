@@ -12,24 +12,46 @@
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('membres_tribunal.add');
 });
-/*Route::get('/',function (){
-    /* $user = DB::table('users')
-        ->pluck('name');
 
-
-
-    $users = DB::table('dossiers_correctionnels')
-        ->join('renvoi', 'dossiers_correctionnels.id', '=', 'renvoi.dossier_id')
-        ->whereid('dossiers_correctionnels.id',33)
-       // ->select('renvoi.*', 'dossiers_correctionnels.numero_ordre')
-        ->get();
-    foreach ($users as $user)
-    {
-        echo $user->numero_ordre .'<br>';
-    }
-});*/
+//Route::get('/',function (){
+//    $dossiers = DB::table('dossiers_correctionnels')
+//        ->selectRaw('max(renvoi.date_renvoi) as derniere_date
+//      ,dossiers_correctionnels.numero_ordre as ordre
+//      ,dossiers_correctionnels.id as IDDossier
+//      ,dossiers_correctionnels.partie_civile as civil
+//      ,dossiers_correctionnels.prevenu
+//      ,dossiers_correctionnels.situation_penale as penal
+//      ,dossiers_correctionnels.jugment_ADD as jadd
+//      ,dossiers_correctionnels.jugement_au_fond as jfond
+//      ,group_concat(membres_renvoi.membres_id)
+//      ')
+//        ->leftjoin('renvoi', 'dossiers_correctionnels.id', '=', 'renvoi.dossier_id')
+//        ->join('membres_renvoi', 'membres_renvoi.renvoi_id','=','renvoi.id')
+//        ->join('membres_tribunal', 'membres_tribunal.id','=','membres_renvoi.membres_id')
+//        ->groupBy('renvoi.dossier_id')
+//        ->get();
+//    $dossiers = DB::select(
+//        'SELECT
+//renvoi.id AS renvoi_id,
+//dossiers_correctionnels.id AS dossier_id,
+//numero_ordre, partie_civile, prevenu, situation_penale, jugment_ADD, jugement_au_fond,
+//date_renvoi,
+//GROUP_CONCAT(membres_tribunal.nom SEPARATOR "\n") AS membres
+//FROM renvoi
+//JOIN dossiers_correctionnels ON renvoi.dossier_id = dossiers_correctionnels.id
+//JOIN membres_renvoi ON renvoi.id = membres_renvoi.renvoi_id
+//JOIN membres_tribunal ON membres_tribunal.id = membres_renvoi.membres_id
+//WHERE (dossier_id,date_renvoi) IN (
+//    SELECT dossier_id , MAX(date_renvoi)
+//    FROM renvoi
+//    GROUP BY renvoi.dossier_id
+//)
+//GROUP BY membres_renvoi.renvoi_id'
+//    );
+//    dump($dossiers);
+//});
 
 
 //// Route in Member /////////////////////////////////////////////
@@ -62,11 +84,13 @@ Route::get('/Renvois', 'RenvoiController@index');
 
 Route::post('/NewRenvoi', 'RenvoiController@NewRenvoi');
 
-Route::put('/NewRenvoi', 'RenvoiController@UpdateRenvoi');
+Route::post('/updateRenvoi', 'RenvoiController@UpdateRenvoi');
+
+Route::get('/modifierRenvoi', 'RenvoiController@edit');
 
 Route::get('/listRenvois', 'RenvoiController@show');
 
-Route::post('/deleteRenvoi', 'RenvoiController@destroy');
+Route::get('/deleteRenvoi', 'RenvoiController@destroy');
 
 Route::get('/NewRenvoi', [
     'as'   => 'editerRenvoi',

@@ -8,10 +8,11 @@
 				<div class="row clearfix">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="card">
-							<div class="header">
-								<h2>
-									ENREGISTREMENT D'UN MEMBRE DU TRIBUNAL
-								</h2>
+							<div id="toto" class="header">
+								<div class="text" data-text="text1">
+										ENREGISTREMENT D'UN MEMBRE DU TRIBUNAL
+								</div>
+
 								<ul class="header-dropdown m-r--5">
 									<li class="dropdown">
 										<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -26,7 +27,7 @@
 								</ul>
 							</div>
 							<div class="body">
-								<form id="formulaire_membre" method="POST" action="{{ route('membretribunal.store') }}">
+								<form id="formulaire_membre" method="POST" >
 									{{ csrf_field() }}
 									<div class="form-group form-float">
 										<div class="form-line{{ $errors->has('nom') ? ' has-error' : '' }}">
@@ -65,7 +66,7 @@
 									</div>
 
 									<br>
-									<button class="btn btn-primary m-t-15 waves-effect"  type="submit">OK</button>
+									<button class="btn btn-primary m-t-15 waves-effect" data-text="text" type="submit">OK</button>
 								</form>
 							</div>
 						</div>
@@ -131,7 +132,7 @@
 	</section>
 @stop
 
-@section('script')
+@section('js')
 	<script type="text/javascript ">
 
 	</script>

@@ -176,7 +176,6 @@
 
 <script src={{asset("bower_components/adminbsb-materialdesign/plugins/jquery/jquery.min.js")}}></script>
 
-
 <!-- Bootstrap Core Js -->
 <script src={{asset("bower_components/adminbsb-materialdesign/plugins/bootstrap/js/bootstrap.js")}}></script>
 
@@ -199,17 +198,24 @@
 <!-- ChartJs -->
 <script src={{asset("bower_components/adminbsb-materialdesign/plugins/chartjs/Chart.bundle.js")}}></script>
 
-
-
 <!-- Sparkline Chart Plugin Js -->
 <script src={{asset("bower_components/adminbsb-materialdesign/plugins/jquery-sparkline/jquery.sparkline.js")}}></script>
+
+
+<script>
+    @if(isset($hideSidebar) && $hideSidebar == true)
+            breakpointWidth = 2560;
+    @else
+            breakpointWidth = 1170;
+    @endif
+</script>
 
 <!-- Custom Js -->
 <script src={{asset("bower_components/adminbsb-materialdesign/js/admin.js")}}></script>
 <!--<script src={{asset("bower_components/adminbsb-materialdesign/js/pages/index.js")}}></script>-->
 
 <!-- Demo Js -->
-<script src={{asset("bower_components/adminbsb-materialdesign/js/demo.js")}}></script>
+
 
 @yield('js')
 
