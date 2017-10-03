@@ -1,4 +1,5 @@
-@extends('page_model')
+{{--{{ dd($dossiers) }}--}}
+@extends('page_model', ['hideSidebar' => true])
 
 
 
@@ -22,12 +23,14 @@
 
   @section('main_content')
 
+      <div style="position: relative;  top: 100px; left:-40%; text-align: center"><button class="btn btn-success bars">Afficher/Cacher le Menu</button><br></div>
       <div class="row clearfix">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <br><br><br><br><br><br><br>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="position: absolute; left: 1.2%;">
               <div class="card">
                   <div class="header">
                       <h2>
-                          EXPORTABLE TABLE
+                          LISTE DES DERNIERS RENVOIS DE DOSSIERS
                       </h2>
                       <ul class="header-dropdown m-r--5">
                           <li class="dropdown">
@@ -42,19 +45,20 @@
                           </li>
                       </ul>
                   </div>
-                  <div class="body">
-                      <div class="table-responsive">
-                          <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                              <thead>
+                  <div class="body" >
+                      <div class="table-responsive" >
+                          <table class="table table-bordered table-striped table-hover dataTable js-exportable" >
+                              <thead >
 
                                   <tr>
                                       <th>Numero Ordre</th>
                                       <th>Date Dernier Renvoi</th>
                                       <th>Partie Civile</th>
                                       <th>Prevenu</th>
-                                      <th>Jugment_ADD</th>
-                                      <th>Jugment_Au_fond</th>
-                                      <th>Date Dernier Renvoi</th>
+                                      <th>Situation Penale</th>
+                                      <th>Jugment ADD</th>
+                                      <th>Jugment Au fond</th>
+                                      <th>Motif du renvoi</th>
                                       <th>Composition Jury</th>
                                       <th class="noExport">Action</th>
                                   </tr>
@@ -72,6 +76,7 @@
                                       <td>{{ $dossier->situation_penale }}</td>
                                       <td>{{ $dossier->jugment_ADD }}</td>
                                       <td>{{ $dossier->jugement_au_fond }}</td>
+                                      <td>{{ $dossier->motif_renvoi}}</td>
                                       <td>{{ $dossier->membres }}</td>
                                       <td>
                                           <button class="btn btn-xs btn-info voir-renvoi" data-target="#dossier_renvoi_Modal" data-id="{{ $dossier->dossier_id }}" title="voir"><i class="material-icons">list</i></button>
@@ -172,12 +177,12 @@
     });
 
 
-
    $(function () {
        $('.js-exportable').DataTable({
            dom: 'Bfrtip',
            responsive: true,
            columns: [
+               null,
                null,
                null,
                null,
@@ -193,10 +198,14 @@
                null
            ],
            buttons: [
-               'copy',
-               'csv',
-               'excel',
                {
+                   extend:'excel',
+                   exportOptions: {
+                       columns: "thead th:not(.noExport)"
+                   }
+               },
+               {
+
                    extend:'pdf',
                    exportOptions:{
                        columns:"thead th:not(.noExport)"

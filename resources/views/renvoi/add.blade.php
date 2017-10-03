@@ -1,3 +1,4 @@
+{{--{{ dd($dossier->partie_civile) }}--}}
 @extends('page_model')
 
 @section('css')

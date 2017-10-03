@@ -1,4 +1,4 @@
-@extends('page_model')
+@extends('page_model', ['hideSidebar' => true])
 
 @section('css')
     {!! Html::style('bower_components/adminbsb-materialdesign/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') !!}
@@ -8,10 +8,10 @@
 @section('main_content')
     <section class="content" style="width: 120%">
         <div class="col-sm-offset-4 col-sm-4" >
-            <div class=" alert" ><span style="position: relative; left: -630px;  color: #2980b9; height: 50px; border: 1px solid inherit;">{!! session('ok') !!}</span></div>
+            <div class=" alert" ><span style="position: relative; left: 100px;  color: green; height: 50px; border: 1px solid inherit;">{!! session('ok') !!}</span></div>
         </div>
         <div class="container-fluid">
-
+            <div style="position: relative;  top: -10px; left:-78%; text-align: center"><button class="btn btn-success bars">Afficher/Cacher le Menu</button><br></div>
             <div class="block-header">
                 <div class="table-responsive">
 
@@ -132,9 +132,9 @@
                                                 @endforeach
                                             </td>
                                             <td>
-                                                <a class="btn btn-xs btn-info"  href ="{{ action('DossierCorrectionnelController@edit', ['id' => $dossier->id]) }}" title="Renvoyez le dossier" ><i class="material-icons">create</i></a>
+                                                <a class="btn btn-xs btn-info"  href ="{{ action('DossierCorrectionnelController@edit', ['id' => $dossier->id]) }}" title="Modifier le dossier" ><i class="material-icons">create</i></a>
                                                 <button class="btn btn-xs btn-danger" data-id="{{ $dossier->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
-                                                <a class="btn btn-xs btn-warning " href ="{{ action('RenvoiController@edit', ['id' => $dossier->id]) }}" title="Renvoyez le dossier"> <i class="material-icons">call_missed_outgoing</i></a>
+                                                <a class="btn btn-xs btn-warning " href ="{{ action('RenvoiController@create', ['id' => $dossier->id]) }}" title="Renvoyez le dossier"> <i class="material-icons">call_missed_outgoing</i></a>
 
 
                                             </td>
@@ -346,21 +346,21 @@
         });
 
         //------------------supprimer--------------------
-        $('tbody').delegate('.btn-danger','click',function () {
+        {{--$('.btn-danger').click(function () {--}}
 
-            var value= $(this).data('id');
-            var url = '{{ URL::to('deleteDossier') }}';
-            if(confirm("Voulez vous supprimer ce dossier ?")==true){
+            {{--var value= $(this).data('id');--}}
+            {{--var url = '{{ URL::to('deleteDossier') }}';--}}
+            {{--if(confirm("Voulez vous supprimer ce dossier ?")==true){--}}
 
-                $.ajax({type : 'get',  url : url, data : {'id':value}, success:function (data) {
-                    console.log(data);
-                    $('#dossiers'+value).remove();
+                {{--$.ajax({type : 'get',  url : url, data : {'id':value}, success:function (data) {--}}
+                    {{--console.log(data);--}}
+                    {{--$('#dossiers'+value).remove();--}}
 
-                }
-                });
-            }
+                {{--}--}}
+                {{--});--}}
+            {{--}--}}
 
-        });
+        {{--});--}}
 
 
     </script>
@@ -380,10 +380,14 @@
                 dom: 'Bfrtip',
                 responsive: true,
                 buttons: [
-                    'copy',
-                    'csv',
-                    'excel',
                     {
+                        extend:'excel',
+                        exportOptions: {
+                            columns: "thead th:not(.noExport)"
+                        }
+                    },
+                    {
+
                         extend:'pdf',
                         exportOptions:{
                             columns:"thead th:not(.noExport)"

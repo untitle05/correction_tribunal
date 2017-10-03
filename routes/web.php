@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('membres_tribunal.add');
-});
+////Route::get('/', function () {
+//    return view('membres_tribunal.add');
+////});
 
 //Route::get('/',function (){
 //    $dossiers = DB::table('dossiers_correctionnels')
@@ -58,6 +58,7 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/', 'DossierCorrectionnelController@index');
 
     Route::get('/members', 'MembreTribunalController@index');
 
@@ -68,7 +69,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/listMembers', 'MembreTribunalController@show');
 
     Route::post('/deleteMember', 'MembreTribunalController@delete');
-});
+
 
 //// Fin Route in Member /////////////////////////////////////////////
 
@@ -80,66 +81,71 @@ Route::group(['middleware' => ['auth']], function() {
 //// Fin Route in Renvoi /////////////////////////////////////////////
 
 
-Route::get('/Renvois', 'RenvoiController@index');
+    Route::get('/Renvois', 'RenvoiController@index');
 
-Route::post('/NewRenvoi', 'RenvoiController@NewRenvoi');
+    Route::post('/NewRenvoi', 'RenvoiController@NewRenvoi');
 
-Route::post('/updateRenvoi', 'RenvoiController@UpdateRenvoi');
+    Route::get('/createRenvoi', 'RenvoiController@create');
 
-Route::get('/modifierRenvoi', 'RenvoiController@edit');
+    Route::post('/updateRenvoi', 'RenvoiController@UpdateRenvoi');
 
-Route::get('/listRenvois', 'RenvoiController@show');
+    Route::get('/modifierRenvoi', 'RenvoiController@edit');
 
-Route::get('/deleteRenvoi', 'RenvoiController@destroy');
+    Route::get('/listRenvois', 'RenvoiController@show');
 
-Route::get('/NewRenvoi', [
-    'as'   => 'editerRenvoi',
-    'uses' => 'RenvoiController@edit'
-]);
+    Route::get('/deleteRenvoi', 'RenvoiController@destroy');
+
+    Route::get('/editRenvoi', [
+        'as'   => 'editerRenvoi',
+        'uses' => 'RenvoiController@edit'
+    ]);
 
 
 
 //// Route in Dossiers Correctionnel /////////////////////////////////////////////
 
-Route::get('dossiers', 'DossierCorrectionnelController@index');
+    Route::get('dossiers', 'DossierCorrectionnelController@index');
 
 
-Route::get('NewDossiers', [
-    'as'   => 'creerDossier',
-    'uses' => 'DossierCorrectionnelController@create'
-]);
+    Route::get('NewDossiers', [
+        'as'   => 'creerDossier',
+        'uses' => 'DossierCorrectionnelController@create'
+    ]);
 
 
-Route::post('NewDossiers', [
-    'as'   => 'saveDossier',
-    'uses' => 'DossierCorrectionnelController@store'
-]);
+    Route::post('NewDossiers', [
+        'as'   => 'saveDossier',
+        'uses' => 'DossierCorrectionnelController@store'
+    ]);
 
-Route::get('updateDossiers', [
-    'as'   => 'upDossier',
-    'uses' => 'DossierCorrectionnelController@edit'
-]);
+    Route::get('updateDossiers', [
+        'as'   => 'upDossier',
+        'uses' => 'DossierCorrectionnelController@edit'
+    ]);
 
-Route::post('updateDossiers', [
-    'as'   => 'downDossier',
-    'uses' => 'DossierCorrectionnelController@update'
-]);
+    Route::post('updateDossiers', [
+        'as'   => 'downDossier',
+        'uses' => 'DossierCorrectionnelController@update'
+    ]);
 
 
-Route::get('deleteDossier', 'DossierCorrectionnelController@destroy');
+    Route::get('deleteDossier', 'DossierCorrectionnelController@destroy');
 
 //// End Route in DossierCorrectionnel /////////////////////////////////////////////
 
-/*Route::resource('renvoi', 'RenvoiController');
-Route::resource('users', 'UsersController');*/
+    /*Route::resource('renvoi', 'RenvoiController');
+    Route::resource('users', 'UsersController');*/
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/home', 'HomeController@index')->name('home');
 
 /////// Route Profile////////////////////////////////////////////////////////////////////
 ///
-Route::get('profile', 'UsersController@profile');
-Route::post('profile', 'UsersController@update_avatar');
+    Route::get('profile', 'UsersController@profile');
+    Route::post('profile', 'UsersController@update_avatar');
 
 /////// Route Profile////////////////////////////////////////////////////////////////////
+});
+
+Auth::routes();

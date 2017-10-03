@@ -1,7 +1,12 @@
+{{--@foreach($renvois as $renvoi)--}}
+    {{--{{ dd($renvoi->motif_renvoi) }}--}}
+    {{--@endforeach--}}
+
+{{--{{ dd($renvoi->motif_renvoi ) }}--}}
 <div class="dossier" data-partiecivil="{{ $dossier->partie_civile }}">{{ $dossier->numero_ordre }}, {{ $dossier->partie_civile }}</div>
 <br><hr>
 @foreach($renvois as $renvoi)
-    <h4>Renvoi du {{ date('d M Y', strtotime($dossier->date_renvoi)) }} </h4>
+    <h4>Renvoi du {{ date('d M Y', strtotime($renvoi->date_renvoi)) }} </h4>
     Motif : {{ $renvoi->motif_renvoi }}
     <div class="row">
         <div class="col-sm-8">

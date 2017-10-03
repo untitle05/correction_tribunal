@@ -156,7 +156,7 @@ class DossierCorrectionnelController extends Controller
     $dossier->save();
     //$this->dossierGestion->update($id, $request->all());
 
-    return redirect('dossiers')->withOk("Le dossier ayant pour numero d'ordre:" . $r->input('numero_ordre') . " a été modifié.");
+    return redirect('dossiers')->withOk("Le dossier: " . $r->input('partie_civile') . " a été modifié.");
   }
 
   /**
@@ -172,7 +172,7 @@ class DossierCorrectionnelController extends Controller
     //$dossier->membres_tribunal()->detach();
 
     $renvois = Renvoi::where('dossier_id','=',$r->id);
-    var_dump($renvois);
+//    var_dump($renvois);
 //    foreach ($dossier->renvoi() as $renvoi){
 //      dump($renvoi);
 //      $renvoi->membres_tribunal()->detach();
@@ -180,7 +180,7 @@ class DossierCorrectionnelController extends Controller
 //    }
 //    $dossier->delete();
     //$this->dossierGestion->destroy($id);
-    die;
+//    die;
 
     return redirect()->back();
   }

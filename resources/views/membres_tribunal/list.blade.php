@@ -14,10 +14,9 @@
 @section('main_content')
 
     <section class="content">
-        <div class="container-fluid">
+        <div style="position: relative;  top: 50px; left:-42%; text-align: center"><button class="btn btn-success bars">Afficher/Cacher le Menu</button><br></div>
 
-            <div style="text-align: center"><button class="btn btn-primary bars">Afficher/Cacher le Menu</button><br></div>
-            
+        <div class="container-fluid">
             <div class="block-header">
 
                 <br />
@@ -308,10 +307,14 @@
                 dom: 'Bfrtip',
                 responsive: true,
                 buttons: [
-                    'copy',
-                    'csv',
-                    'excel',
                     {
+                        extend:'excel',
+                        exportOptions: {
+                            columns: "thead th:not(.noExport)"
+                        }
+                    },
+                    {
+
                         extend:'pdf',
                         exportOptions:{
                             columns:"thead th:not(.noExport)"

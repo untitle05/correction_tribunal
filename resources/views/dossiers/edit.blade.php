@@ -1,3 +1,4 @@
+{{--{{ dd($dossier) }}--}}
 @extends('page_model')
 
 @section('css')
@@ -92,6 +93,7 @@
                                 <button id="insert-member" class="btn btn-success">Ajouter</button>
 
                                 @foreach($dossier->membres_tribunal as $memb)
+{{--                                    {{ dd($memb) }}--}}
                                     <div class="row">
                                         <div class="form-group">
                                             {{ Form::select('membre_id[]', $membres, $memb->id, ['class'=>'form-control', 'placeholder' =>'-- Choisir --']) }}

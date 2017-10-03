@@ -71,7 +71,7 @@ class RenvoiController extends Controller
 renvoi.id AS renvoi_id,
 dossiers_correctionnels.id AS dossier_id,
 numero_ordre, partie_civile, prevenu, situation_penale, jugment_ADD, jugement_au_fond,
-date_renvoi,
+date_renvoi, motif_renvoi,
 GROUP_CONCAT(membres_tribunal.nom SEPARATOR ", ") AS membres
 FROM renvoi
 JOIN dossiers_correctionnels ON renvoi.dossier_id = dossiers_correctionnels.id
@@ -93,8 +93,21 @@ GROUP BY membres_renvoi.renvoi_id'
    *
    * @return Response
    */
-  public function create()
+  public function create(Request $r)
   {
+//      dd($r->id);
+//      $dossier = DossierCorrectionnel::find($r->id);
+
+      $dossier =  DB::table('dossiers_correctionnels')
+          ->where('id', $r->id)
+          ->select('dossiers_correctionnels.id', 'dossiers_correctionnels.partie_civile')
+          ->get();
+
+      return view('renvoi.add', [
+          'dossier'=> $dossier[0],
+          'membres'=>MembreTribunal::pluck('nom', 'id'),
+                ]);
+//   dd($dossier);
 
   }
 
@@ -120,6 +133,8 @@ GROUP BY membres_renvoi.renvoi_id'
       $renvois = Renvoi::where('dossier_id', $r->id)
           ->with('membres_tribunal')
           ->get();
+
+//      dd($renvois[0]);
       return view('renvoi.show', compact(['dossier','renvois']));
   }
 
