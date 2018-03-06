@@ -3,12 +3,15 @@ table.dataTable {
   margin-top: 6px !important;
   margin-bottom: 6px !important;
   max-width: none !important;
+  width: 120%;
 }
 table.dataTable td,
 table.dataTable th {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
+
+
 }
 table.dataTable.nowrap th,
 table.dataTable.nowrap td {
@@ -54,6 +57,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 table.dataTable thead > tr > th,
 table.dataTable thead > tr > td {
   padding-right: 30px;
+
 }
 table.dataTable thead > tr > th:active,
 table.dataTable thead > tr > td:active {

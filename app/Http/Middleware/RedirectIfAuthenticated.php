@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
+    protected $redirectTo = '/Renvois';
     /**
      * Handle an incoming request.
      *

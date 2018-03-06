@@ -12,5 +12,31 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+
+        $faker = Faker\Factory::create();
+
+
+        DB::table('users')->delete();
+
+        for($i = 0; $i < 10; ++$i)
+        {
+            DB::table('users')->insert([
+                'name' => 'Nom' . $i,
+                'email' => 'email' . $i . '@blop.fr',
+                'avatar' => 'profile.png',
+                'admin' => rand(0, 1),
+                'password' => bcrypt('password' . $i)
+            ]);
+        }
+
+        for ($i=0;$i<10;$i++)
+        {
+            DB::table('membres_tribunal')->insert( [
+
+            'nom'=>str_random(10),
+            'telephone'=>mt_rand(666666666,699999999),
+            'grade'=> 'Avocat'
+            ]);
+        }
     }
 }
