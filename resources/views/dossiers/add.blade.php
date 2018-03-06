@@ -90,6 +90,23 @@
                                     </div>
                                 </div>
 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <label>Decision</label>
+                                        <select class="ms" style="width:100%" name="decision" id="decision" >
+                                            <option value=""></option>
+                                            <option value="Deliberé">Deliberé</option>
+                                            <option value="A Deliberer">A Deliberer</option>
+                                            <option value="Renvoyer">Renvoyer</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+
 
                                 <input type="submit" onsubmit="swal('hello');" value="Save" class="btn btn-primary m-t-15 waves-effect">
 

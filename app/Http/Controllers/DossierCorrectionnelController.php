@@ -62,7 +62,8 @@ class DossierCorrectionnelController extends Controller
                                               'prevenu' => $request['prevenu'],
                                               'situation_penale' => $request['situation_penale'],
                                               'jugment_ADD' => $request['jugment_ADD'],
-                                              'jugement_au_fond' => $request['jugement_au_fond']
+                                              'jugement_au_fond' => $request['jugement_au_fond'],
+                                               'decision' => $request['decision']
                                             ]);
     $dossier->save();
 //    $membres = MembreTribunal::find($request->membre_id);

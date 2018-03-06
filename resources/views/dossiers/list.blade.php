@@ -107,6 +107,7 @@
                                         <th>Date Premiere Audience</th>
                                         <th>Partie Civile</th>
                                         <th>Prevenu</th>
+                                        <th>Decision</th>
                                         <th>Situation Penale</th>
                                         <th>Jugement ADD</th>
                                         <th>Jugement au Fond</th>
@@ -124,6 +125,7 @@
                                             <td>{{ $dossier->date_premiere_audience }}</td>
                                             <td>{{ $dossier->partie_civile }}</td>
                                             <td>{{ $dossier->prevenu }}</td>
+                                            <td>{{$dossier->decision}}</td>
                                             <td>{{ $dossier->situation_penale }}</td>
                                             <td>{{ $dossier->jugment_ADD }}</td>
                                             <td>{{ $dossier->jugement_au_fond }}</td>
@@ -150,6 +152,7 @@
                                         <th>Date Premiere Audience</th>
                                         <th>Partie Civile</th>
                                         <th>Prevenu</th>
+                                        <th>Decision</th>
                                         <th>Situation Penale</th>
                                         <th>Jugement ADD</th>
                                         <th>Jugement au Fond</th>
