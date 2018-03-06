@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         {
             DB::table('users')->insert([
                 'name' => 'Nom' . $i,
-                'email' => 'email' . $i . '@blop.fr',
+                'email' => 'email' . $i . '@gov.cm',
                 'avatar' => 'profile.png',
                 'admin' => rand(0, 1),
                 'password' => bcrypt('password' . $i)
