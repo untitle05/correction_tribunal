@@ -31,10 +31,12 @@
                 </li>
 
                 <li>
+                @if (Auth::user()->admin == 1)
                     <a href="{{ url('Renvois') }}" class="mce-menu-item">
                         <span>RENVOI DOSSIERS</span>
                     </a>
-
+                @endif
+                
                 </li>
             </ul>
         </li>

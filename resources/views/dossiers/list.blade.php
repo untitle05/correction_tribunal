@@ -135,10 +135,10 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-xs btn-info"  href ="{{ action('DossierCorrectionnelController@edit', ['id' => $dossier->id]) }}" title="Modifier le dossier" ><i class="material-icons">create</i></a>
-                                                <button class="btn btn-xs btn-danger" data-id="{{ $dossier->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
-                                                <a class="btn btn-xs btn-warning " href ="{{ action('RenvoiController@create', ['id' => $dossier->id]) }}" title="Renvoyez le dossier"> <i class="material-icons">call_missed_outgoing</i></a>
-
-
+                                                @if (Auth::user()->admin == 1)
+                                                    <button class="btn btn-xs btn-danger" data-id="{{ $dossier->id }}" title="Supprimer"><i class="material-icons">remove</i></button>
+                                                    <a class="btn btn-xs btn-warning " href ="{{ action('RenvoiController@create', ['id' => $dossier->id]) }}" title="Renvoyez le dossier"> <i class="material-icons">call_missed_outgoing</i></a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
