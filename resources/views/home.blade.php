@@ -16,7 +16,7 @@
                             </div>
                         @endif
 
-                        Connexion avec succes!
+                        Operation effectuée avec succes!
 
                     </div>
                 </div>
