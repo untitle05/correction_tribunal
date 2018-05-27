@@ -4,13 +4,13 @@
             <!-- Call Search -->
 
             <!-- #END# Call Search -->
-            @include('nav_bar.notice_search')
+            {{--@include('nav_bar.notice_search')--}}
             <!-- Notifications -->
-            @include('nav_bar.notice_cloche')
+            {{--@include('nav_bar.notice_cloche')--}}
             <!-- #END# Notifications -->
             <!-- Tasks -->
             <!-- #END# Tasks -->
-            @include('nav_bar.notice_color_nav_bar')
+            {{--@include('nav_bar.notice_color_nav_bar')--}}
 
         </ul>
 

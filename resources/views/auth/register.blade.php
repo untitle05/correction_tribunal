@@ -71,9 +71,9 @@
                             <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
                             <label for="terms">Cochez Si c'est un Adminstrateur <a href="javascript:void(0);">SGDC</a>.</label>
                         </div>
-                        <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
+                        <button class="btn btn-lg bg-pink waves-effect" type="submit">ENREGISTRER</button>
                        <div class="m-t-25 m-b--5 align-center">
-                        <a href="{{ url('#') }}">You already have a membership?</a>
+                        {{--<a href="{{ url('#') }}">You already have a membership?</a>--}}
                     </div>
 
 
