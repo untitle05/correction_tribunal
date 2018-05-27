@@ -348,22 +348,6 @@
         },
         {
             "name": "intervention/image",
-<<<<<<< HEAD
-<<<<<<< HEAD
-            "version": "dev-master",
-=======
-            "version": "2.4.0",
->>>>>>> ac4af08101eeda3a930ffc2a41911304117e77f2
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Intervention/image.git",
-                "reference": "322a4ade249467179c50a3e50eda8760ff3af2a3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/322a4ade249467179c50a3e50eda8760ff3af2a3",
-                "reference": "322a4ade249467179c50a3e50eda8760ff3af2a3",
-=======
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -372,15 +356,9 @@
             },
             "dist": {
                 "type": "zip",
-<<<<<<< HEAD
-                "url": "https://api.github.com/repos/Intervention/image/zipball/322a4ade249467179c50a3e50eda8760ff3af2a3",
-                "reference": "322a4ade249467179c50a3e50eda8760ff3af2a3",
->>>>>>> 1cf114f7b64e3ddd891a04d2ded9011f2d296db1
-=======
+
                 "url": "https://api.github.com/repos/Intervention/image/zipball/4581c28cdcb6067dca2b27ea8b76842ca79ddf90",
                 "reference": "4581c28cdcb6067dca2b27ea8b76842ca79ddf90",
->>>>>>> e56bf72b20698df4a7716a0049ae4c4c96e01c2d
->>>>>>> ac4af08101eeda3a930ffc2a41911304117e77f2
                 "shasum": ""
             },
             "require": {
@@ -437,19 +415,11 @@
                 "thumbnail",
                 "watermark"
             ],
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
+
             "time": "2017-07-04T16:10:28+00:00"
-=======
-            "time": "2017-07-03T15:50:40+00:00"
->>>>>>> 1cf114f7b64e3ddd891a04d2ded9011f2d296db1
-=======
-            "time": "2017-07-03T15:50:40+00:00"
-=======
-            "time": "2017-07-04T16:10:28+00:00"
->>>>>>> e56bf72b20698df4a7716a0049ae4c4c96e01c2d
->>>>>>> ac4af08101eeda3a930ffc2a41911304117e77f2
-        },
+            },
         {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
